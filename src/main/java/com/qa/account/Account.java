@@ -7,7 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "sentAccount")
 public class Account {
 	
-	@Id private String id;
+	@Id
+	private String id;
 	private Long accountId;
 	private String email;
 	private String fullName;
