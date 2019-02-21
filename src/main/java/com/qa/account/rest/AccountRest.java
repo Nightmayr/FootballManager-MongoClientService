@@ -34,7 +34,7 @@ public class AccountRest {
 	}
 
 	@GetMapping("/get/{accountId}")
-	public SentAccount getAccount(Long accountId) {
+	public SentAccount getAccount(@PathVariable Long accountId) {
 		return service.getAccount(accountId);
 	}
 	

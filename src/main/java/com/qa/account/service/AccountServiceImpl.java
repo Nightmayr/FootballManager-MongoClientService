@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -23,15 +22,15 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public SentAccount getAccount(Long accountId) {
-		System.out.println(repo.findAccountById(accountId));
-		return repo.findAccountById(accountId);
+		return repo.findSentAccountByAccountId(accountId);
 	}
 	
 	@Override
 	public ResponseEntity<Object> updateAccount(SentAccount account, Long accountId) {
-		if (accountExists(accountId)) {
+		SentAccount accToDelete = repo.findSentAccountByAccountId(accountId);
+		if (accToDelete != null) {
 			account.setAccountId(accountId);
-			repo.save(account);
+			repo.save(accToDelete);
 			return ResponseEntity.ok().build();
 		}
 		return ResponseEntity.notFound().build();
@@ -39,19 +38,12 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public ResponseEntity<Object> deleteAccount(Long accountId) {
-		SentAccount accToDelete = repo.findAccountById(accountId);
+		SentAccount accToDelete = repo.findSentAccountByAccountId(accountId);
 		if (accToDelete != null) {
 			repo.delete(accToDelete);
-			System.out.println("it worked");
 			return ResponseEntity.ok().build();
 		}
-		System.out.println("it no work");
 		return ResponseEntity.notFound().build();
-	}
-
-	private boolean accountExists(Long accountId) {
-		Optional<SentAccount> accountOptional = repo.findById(accountId);
-		return accountOptional.isPresent();
 	}
 
 }

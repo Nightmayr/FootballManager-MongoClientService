@@ -10,7 +10,7 @@ public interface AccountService {
 
 	List<SentAccount> getAccounts();
 
-	SentAccount getAccount(Long id);
+	SentAccount getAccount(Long accountId);
 
 	ResponseEntity<Object> updateAccount(SentAccount account, Long accountId);
 
