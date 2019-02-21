@@ -1,11 +1,8 @@
-package com.qa.account;
+package com.qa.account.persistence.domain;
 
 import javax.persistence.Id;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "sentAccount")
-public class Account {
+public class SentAccount {
 	
 	@Id
 	private String id;
