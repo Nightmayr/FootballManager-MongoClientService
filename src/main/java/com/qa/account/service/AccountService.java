@@ -10,6 +10,8 @@ public interface AccountService {
 
 	List<SentAccount> getAccounts();
 
+	SentAccount getAccount(Long id);
+
 	ResponseEntity<Object> updateAccount(SentAccount account, Long accountId);
 
 	ResponseEntity<Object> deleteAccount(Long accountId);
