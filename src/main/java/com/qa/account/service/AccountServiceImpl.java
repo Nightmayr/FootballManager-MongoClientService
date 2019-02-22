@@ -30,7 +30,8 @@ public class AccountServiceImpl implements AccountService {
 		SentAccount accToDelete = repo.findSentAccountByAccountId(accountId);
 		if (accToDelete != null) {
 			account.setAccountId(accountId);
-			repo.save(accToDelete);
+			repo.save(account);
+			repo.delete(accToDelete);
 			return ResponseEntity.ok().build();
 		}
 		return ResponseEntity.notFound().build();
