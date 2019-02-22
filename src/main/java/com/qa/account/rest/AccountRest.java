@@ -33,7 +33,7 @@ public class AccountRest {
 		return service.getAccounts();
 	}
 
-	@GetMapping("/get/{accountId}")
+	@GetMapping("${path.getAccountById}")
 	public SentAccount getAccount(@PathVariable Long accountId) {
 		return service.getAccount(accountId);
 	}
