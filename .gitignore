@@ -1,9 +1,9 @@
-/bin/
-/target/
-.project
+.mvn
 .settings
+target
 .classpath
-*.properties
+.factorypath
+.project
+bin
 .scannerwork
-.DS_Store
-.vscode
+sonar-project.properties
