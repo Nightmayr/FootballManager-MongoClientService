@@ -38,7 +38,7 @@ public class AccountRest {
 		return service.getAccount(accountId);
 	}
 
-	@GetMapping("${path.getPlaying")
+	@GetMapping("${path.getPlaying}")
 	public List<SentAccount> getPlaying() {
 		return service.getPlaying(true);
 	}
