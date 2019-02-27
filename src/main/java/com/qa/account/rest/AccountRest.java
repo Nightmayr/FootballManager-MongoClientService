@@ -37,6 +37,11 @@ public class AccountRest {
 	public SentAccount getAccount(@PathVariable Long accountId) {
 		return service.getAccount(accountId);
 	}
+
+	@GetMapping("${path.getPlaying}")
+	public List<SentAccount> getPlaying() {
+		return service.getPlaying(true);
+	}
 	
 	@PutMapping("${path.updateAccount}")
 	public ResponseEntity<Object> updateAccount(@RequestBody SentAccount account, @PathVariable Long accountId) {

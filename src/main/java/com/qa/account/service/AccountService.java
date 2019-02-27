@@ -12,6 +12,8 @@ public interface AccountService {
 
 	SentAccount getAccount(Long accountId);
 
+	List<SentAccount> getPlaying(Boolean playing);
+
 	ResponseEntity<Object> updateAccount(SentAccount account, Long accountId);
 
 	ResponseEntity<Object> deleteAccount(Long accountId);

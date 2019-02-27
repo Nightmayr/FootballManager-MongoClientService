@@ -24,6 +24,11 @@ public class AccountServiceImpl implements AccountService {
 	public SentAccount getAccount(Long accountId) {
 		return repo.findSentAccountByAccountId(accountId);
 	}
+
+	@Override
+	public List<SentAccount> getPlaying(Boolean playing) {
+		return repo.findByPlaying(playing);
+	}
 	
 	@Override
 	public ResponseEntity<Object> updateAccount(SentAccount account, Long accountId) {
