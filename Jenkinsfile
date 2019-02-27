@@ -2,7 +2,7 @@ node {
 
         withMaven(maven:'maven') {
           stage('Checkout') {
-            git url: 'https://github.com/Nightmayr/FootballManager-MongoClientService.git', branch: 'get-playing'
+            git url: 'https://github.com/Nightmayr/FootballManager-MongoClientService.git', branch: 'development'
         }
  
         stage('Build') {
