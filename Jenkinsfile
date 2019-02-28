@@ -2,7 +2,16 @@ node {
 
         withMaven(maven:'maven') {
           stage('Checkout') {
-            git url: 'https://github.com/Nightmayr/FootballManager-MongoClientService.git', branch: 'master'
+            git url: 'https://github.com/Nightmayr/FootballManager-MongoClientService.git', branch: 'docker-master'
+        }
+        try{
+            stage('Remove') {
+                sh "docker rm -vf mongoclient"
+                sh "docker rm -vf consumer"
+            }
+        } catch(e) {
+            build_ok = false
+            echo e.toString()
         }
  
         stage('Build') {
